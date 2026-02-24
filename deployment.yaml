@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpbook
+  labels:
+    app: phpbook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpbook
+  template:
+    metadata:
+      labels:
+        app: phpbook
+    spec:
+      containers:
+      - name: phpbook
+        image: sairam030/phpstatic:v1
+        ports:
+        - containerPort: 80
